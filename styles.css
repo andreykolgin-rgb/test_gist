@@ -43,7 +43,29 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
 
 main{max-width:1000px;margin:0 auto;padding:20px 16px 60px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:780px){.grid{grid-template-columns:1fr}}
+/* ---------- адаптив под планшет/телефон ---------- */
+@media(max-width:780px){
+  .grid{grid-template-columns:1fr;gap:16px}
+  /* картинка перестаёт "прилипать", чтобы поля ответов были сразу доступны */
+  .imgwrap{position:static;top:auto}
+  main{padding:14px 12px 48px}
+  .bar{padding:8px 12px;gap:8px}
+  /* предотвращаем авто-зум Safari/iOS при фокусе на поле */
+  .field input,.inp input{font-size:16px}
+  .nav{flex-wrap:wrap;gap:10px}
+  .nav button{flex:1 1 auto;justify-content:center}
+  .counter{order:-1;flex-basis:100%;text-align:center}
+}
+@media(max-width:480px){
+  .brand{font-size:15px}
+  .seg{width:100%}
+  .seg button{flex:1;padding:7px 6px;font-size:12px}
+  .who{display:none}
+  .title-row .t{font-size:16px}
+  .nav button{flex-basis:100%;font-size:13px;padding:11px}
+  .actions{gap:10px}
+  .primary{flex:1}
+}
 .imgwrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;
   position:sticky;top:64px}
 .imgwrap img{width:100%;border-radius:8px;display:block}
