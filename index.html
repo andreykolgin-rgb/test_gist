@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Гистология — тренажёр</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ЭКРАН ВХОДА -->
+<div id="login">
+  <div class="card">
+    <h1>Гистология — тренажёр</h1>
+    <p class="muted">Вход в систему</p>
+    <p id="loginErr" class="err"></p>
+    <div class="field">
+      <span>👤</span>
+      <input id="u" placeholder="Имя пользователя" autocomplete="off">
+    </div>
+    <div class="field">
+      <span>🔒</span>
+      <input id="p" type="password" placeholder="Пароль">
+    </div>
+    <button id="loginBtn" class="btn">Войти</button>
+    <p class="hint">демо-доступ: admin / 1234</p>
+  </div>
+</div>
+
+<!-- ПРИЛОЖЕНИЕ -->
+<div id="app" class="hidden">
+  <header>
+    <div class="bar">
+      <span class="brand">Гистология</span>
+      <span id="sid" class="badge">—</span>
+      <div id="seg" class="seg">
+        <button data-f="all" class="on">Все</button>
+        <button data-f="Э">Электронные</button>
+        <button data-f="П">Препараты</button>
+      </div>
+      <button id="shuffleBtn" class="linkbtn">🔀 перемешать</button>
+      <span class="spacer"></span>
+      <span class="who">👤 <span id="who"></span></span>
+      <button id="logoutBtn" class="linkbtn">выйти</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div>
+        <div class="imgwrap">
+          <img id="imgEl" src="" alt="">
+        </div>
+        <p id="prepNote" class="note hidden">
+          На препаратах цифры не подписаны на фото — перечисли структуры по списку.
+        </p>
+      </div>
+
+      <div>
+        <div class="title-row">
+          <div id="tTitle" class="t"></div>
+          <div id="tSub" class="s"></div>
+        </div>
+
+        <div id="fields"></div>
+
+        <div class="actions">
+          <button id="checkBtn" class="primary">Проверить</button>
+          <div id="result" class="hidden" style="display:flex;align-items:center;gap:12px">
+            <span class="score">Результат: <b id="scoreVal"></b></span>
+            <button id="retryBtn" class="ghost">↻ Заново</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button id="prevBtn">‹ Назад</button>
+      <span id="counter" class="counter"></span>
+      <button id="nextBtn">Следующий (случайный) ›</button>
+    </div>
+    <p id="stat" class="stat" style="text-align:center;margin-top:14px"></p>
+  </main>
+</div>
+
+<script src="users.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
